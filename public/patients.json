@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Doe",
+    "firstname": "John",
+    "age": 20,
+    "sport": "football",
+    "address": "1 Route des lions"
+  },
+  {
+    "id": 2,
+    "name": "Monroe",
+    "firstname": "Marilyn",
+    "age": 18,
+    "sport": "tennis",
+    "address": "1 Route des chats"
+  },
+  {
+    "id": 3,
+    "name": "Picasso",
+    "firstname": "Johan",
+    "age": 32,
+    "sport": "alterophylie",
+    "address": "1 Route des agacias"
+  }
+]

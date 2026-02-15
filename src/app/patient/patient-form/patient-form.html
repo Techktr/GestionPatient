@@ -1,0 +1,15 @@
+<h2>Ajout d'un patient</h2>
+
+<form [formGroup]="patientForm" (ngSubmit)="submit()">
+  <label>Nom du sportif</label>
+  <input formControlName="name">
+  <label>Prénom du sportif</label>
+  <input formControlName="firstname">
+  <label>Age du sportif</label>
+  <input formControlName="age" type="number">
+  <label>Sport pratiqué</label>
+  <input formControlName="sport">
+  <label>Adresse du sportif</label>
+  <input formControlName="address">
+  <button type="submit">Création du sportif</button>
+</form>

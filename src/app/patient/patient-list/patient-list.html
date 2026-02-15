@@ -1,0 +1,12 @@
+<h2>Listes des patients</h2>
+
+<ul>
+  @for (patient of patients; track patient.id) {
+    <li [routerLink]="['/patients', patient.id]">
+      <div>{{ patient.name }}</div>
+      <div> {{ patient.firstname }} </div>
+      <div> {{ patient.sport }} </div>
+    </li>
+  }
+</ul>
+<button [routerLink]="'/patients/create'">Ajouter patient</button>
