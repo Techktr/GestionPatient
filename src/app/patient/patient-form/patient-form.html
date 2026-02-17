@@ -3,12 +3,24 @@
 <form [formGroup]="patientForm" (ngSubmit)="submit()">
   <label>Nom du sportif</label>
   <input formControlName="name">
+  @if (patientForm.get('name')?.touched && patientForm.get('name')?.errors) {
+    <span>Le champ nom du sportif est obligatoire!</span>
+  }
   <label>Prénom du sportif</label>
   <input formControlName="firstname">
+  @if (patientForm.get('firstname')?.touched && patientForm.get('firstname')?.errors) {
+    <span>Le champ firstname est obligatoire!</span>
+  }
   <label>Age du sportif</label>
   <input formControlName="age" type="number">
+  @if (patientForm.get('age')?.touched && patientForm.get('age')?.errors) {
+    <span>Le champ age est obligatoire!</span>
+  }
   <label>Sport pratiqué</label>
   <input formControlName="sport">
+  @if (patientForm.get('sport')?.touched && patientForm.get('sport')?.errors) {
+    <span>Le champ sport est obligatoire!</span>
+  }
   <label>Adresse du sportif</label>
   <input formControlName="address">
   <button type="submit">Création du sportif</button>

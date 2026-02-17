@@ -7,3 +7,4 @@
   <div>sport pratiqué : {{patient.sport}}</div>
   <div>adresse physique : {{patient.address}}</div>
 }
+<button [routerLink]="['/patients', patient?.id, 'edit']">Edit</button>
