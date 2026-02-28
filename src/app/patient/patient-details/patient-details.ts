@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, inject, OnInit} from '@angular/core';
-import {ActivatedRoute, RouterLink} from '@angular/router';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {PatientService} from '../patient';
 import {Patient} from '../patient.interface';
 
@@ -17,6 +17,7 @@ export class PatientDetails implements OnInit {
     private id: string| null = null;
     private patientService: PatientService = inject(PatientService);
     private changeDetectorRef:ChangeDetectorRef = inject(ChangeDetectorRef);
+    private router:Router = inject(Router);
     public patient: Patient | undefined;
 
   ngOnInit(): void {
@@ -27,5 +28,13 @@ export class PatientDetails implements OnInit {
         this.changeDetectorRef.detectChanges();
       });
     }
+  }
+
+  public onDelete(id: number | undefined): void {
+    if (typeof id === 'undefined') {
+      throw Error('Not implemented');
+    }
+    this.patientService.deletePatient(id);
+    this.router.navigate(['patients']);
   }
 }

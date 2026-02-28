@@ -8,3 +8,4 @@
   <div>adresse physique : {{patient.address}}</div>
 }
 <button [routerLink]="['/patients', patient?.id, 'edit']">Edit</button>
+<button (click)="onDelete(patient?.id)">Delete</button>

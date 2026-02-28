@@ -40,4 +40,9 @@ export class PatientService {
     return this.patients.splice(id, 1, patientUpdated);
   }
 
+  public deletePatient(id:number) {
+    this.patients = this.patients.filter(patient => patient.id !== id);
+    return this.patients;
+  }
+
 }
