@@ -1,15 +1,21 @@
-<h2>Ajout d'un patient</h2>
+@if (id) {
+  <h2>Modification d'un patient</h2>
+} @else {
+  <h2>Ajout d'un patient</h2>
+}
 
 <form [formGroup]="patientForm" (ngSubmit)="submit()">
-  <label>Nom du sportif</label>
-  <input formControlName="name">
-  @if (patientForm.get('name')?.touched && patientForm.get('name')?.errors) {
-    <span>Le champ nom du sportif est obligatoire!</span>
-  }
-  <label>Prénom du sportif</label>
-  <input formControlName="firstname">
-  @if (patientForm.get('firstname')?.touched && patientForm.get('firstname')?.errors) {
-    <span>Le champ firstname est obligatoire!</span>
+  @if (!id) {
+    <label>Nom du sportif</label>
+    <input formControlName="lastName">
+    @if (patientForm.get('lastName')?.touched && patientForm.get('lastName')?.errors) {
+      <span>Le champ nom du sportif est obligatoire!</span>
+    }
+    <label>Prénom du sportif</label>
+    <input formControlName="firstName">
+    @if (patientForm.get('firstName')?.touched && patientForm.get('firstName')?.errors) {
+      <span>Le champ firstname est obligatoire!</span>
+    }
   }
   <label>Age du sportif</label>
   <input formControlName="age" type="number">
@@ -17,11 +23,15 @@
     <span>Le champ age est obligatoire!</span>
   }
   <label>Sport pratiqué</label>
-  <input formControlName="sport">
-  @if (patientForm.get('sport')?.touched && patientForm.get('sport')?.errors) {
+  <input formControlName="sportName">
+  @if (patientForm.get('sportName')?.touched && patientForm.get('sportName')?.errors) {
     <span>Le champ sport est obligatoire!</span>
   }
   <label>Adresse du sportif</label>
   <input formControlName="address">
-  <button type="submit">Création du sportif</button>
+  @if (id) {
+    <button type="submit">Mise a jours du sportif</button>
+  } @else {
+    <button type="submit">Création du sportif</button>
+  }
 </form>

@@ -1,7 +1,7 @@
 import {ChangeDetectorRef, Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {PatientService} from '../patient';
-import {Patient} from '../patient.interface';
+import {Patient} from '../models/patient.interface';
 
 @Component({
   selector: 'app-patient-details',
@@ -16,7 +16,6 @@ export class PatientDetails implements OnInit {
     private route: ActivatedRoute = inject(ActivatedRoute);
     private id: string| null = null;
     private patientService: PatientService = inject(PatientService);
-    private changeDetectorRef:ChangeDetectorRef = inject(ChangeDetectorRef);
     private router:Router = inject(Router);
     public patient: Patient | undefined;
 
@@ -25,7 +24,6 @@ export class PatientDetails implements OnInit {
     if (this.id != null) {
       this.patientService.getPatientsById(parseInt(this.id)).subscribe(patient => {
         this.patient = patient;
-        this.changeDetectorRef.detectChanges();
       });
     }
   }
@@ -34,7 +32,6 @@ export class PatientDetails implements OnInit {
     if (typeof id === 'undefined') {
       throw Error('Not implemented');
     }
-    this.patientService.deletePatient(id);
-    this.router.navigate(['patients']);
+    this.patientService.deletePatient(id).subscribe(() => this.router.navigate(['patients']) );
   }
 }

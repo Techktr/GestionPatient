@@ -3,9 +3,9 @@
 <ul>
   @for (patient of patients; track patient.id) {
     <li [routerLink]="['/patients', patient.id]">
-      <div>{{ patient.name }}</div>
-      <div> {{ patient.firstname }} </div>
-      <div> {{ patient.sport }} </div>
+      <div>{{ patient.lastName }}</div>
+      <div> {{ patient.firstName }} </div>
+      <div> {{ patient.sportName }} </div>
     </li>
   }
 </ul>

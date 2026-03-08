@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, inject, OnInit} from '@angular/core';
 import {PatientService} from '../patient';
-import {Patient} from '../patient.interface';
+import {Patient} from '../models/patient.interface';
 import {RouterLink} from '@angular/router';
 
 @Component({

@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Doe",
+    "lastname": "Doe",
     "firstname": "John",
     "age": 20,
     "sport": "football",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "name": "Monroe",
+    "lastname": "Monroe",
     "firstname": "Marilyn",
     "age": 18,
     "sport": "tennis",
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "name": "Picasso",
+    "lastname": "Picasso",
     "firstname": "Johan",
     "age": 32,
     "sport": "alterophylie",
