@@ -1,1 +1,10 @@
-<p>practitioner-details works!</p>
+<p>Détails du praticien</p>
+
+@if (practitioner) {
+  <div>nom: {{practitioner.lastName}}</div>
+  <div>prenom: {{practitioner.firstName}}</div>
+  <div>spécialité: {{practitioner.speciality}}</div>
+  <div>adresse: {{practitioner.address}}</div>
+}
+<button [routerLink]="['/practitioners',practitioner?.id,'edit']">Édit</button>
+<button (click)="onDelete(practitioner?.id)">Suppression</button>
