@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, inject, OnInit} from '@angular/core';
 import {PractitionerService} from '../practitioner';
 import {Practitioner} from '../models/practitioner.interface';
 import {RouterLink} from '@angular/router';
@@ -13,11 +13,13 @@ import {RouterLink} from '@angular/router';
 })
 export class PractitionerList implements OnInit {
   private practitionerService: PractitionerService = inject(PractitionerService);
+  private cdr: ChangeDetectorRef = inject(ChangeDetectorRef);
   public practitioners: Practitioner[] = [];
 
   ngOnInit(): void {
     this.practitionerService.getPractitioners().subscribe(practitioners => {
       this.practitioners = practitioners;
+      this.cdr.detectChanges();
     });
   }
 
