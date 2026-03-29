@@ -1,5 +1,5 @@
-import {ChangeDetectorRef, Component, inject, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {Component, inject, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {PatientService} from '../patient';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Patient} from '../models/patient.interface';
@@ -18,7 +18,6 @@ export class PatientForm implements OnInit {
   public patientForm: FormGroup = this.formBuilder.group({lastName: ['',Validators.required],firstName: ['',Validators.required],age: [1,Validators.required],sportName: ['',Validators.required],address: ['']});
   private patientService: PatientService = inject(PatientService);
   private router:Router = inject(Router);
-  protected readonly FormControl = FormControl;
   private route: ActivatedRoute = inject(ActivatedRoute);
   protected id: string| null = null;
 

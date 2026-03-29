@@ -1,1 +1,35 @@
-<p>practitioner-form works!</p>
+@if (id){
+  <h2>Modification d'un praticien</h2>
+} @else {
+  <h2>Ajout d'un praticien</h2>
+}
+
+<form [formGroup]="practitionerForm" (ngSubmit)="submit()">
+  @if (!id) {
+    <label>Nom du praticien</label>
+    <input formControlName="lastname">
+    @if (practitionerForm.get('lastname')?.touched && practitionerForm.get('lastname')?.errors) {
+        <span>Le champ nom du praticien est obligatoire</span>
+    }
+    <label>Prénom du praticien</label>
+    <input formControlName="firstname">
+    @if (practitionerForm.get('firstname')?.touched && practitionerForm.get('firstname')?.errors) {
+      <span>Le champ prénom du praticien est obligatoire</span>
+    }
+  }
+  <label>Spécialité</label>
+  <input formControlName="speciality">
+  @if (practitionerForm.get('speciality')?.touched && practitionerForm.get('speciality')?.errors){
+    <span>La spécialité du praticien est obligatoire</span>
+  }
+  <label>L'adresse du praticien</label>
+  <input formControlName='address'>
+  @if (practitionerForm.get('address')?.touched && practitionerForm.get('address')?.errors){
+    <span>L'adresse du praticien est obligatoire</span>
+  }
+  @if (id) {
+    <button type="submit">Mise a jours du praticien</button>
+  } @else {
+    <button type="submit">Création du praticien</button>
+  }
+</form>
