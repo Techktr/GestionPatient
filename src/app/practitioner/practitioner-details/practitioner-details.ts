@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {PractitionerService} from '../practitioner';
 import {Practitioner} from '../models/practitioner.interface';
@@ -11,6 +11,7 @@ import {Practitioner} from '../models/practitioner.interface';
 })
 export class PractitionerDetails implements OnInit {
 
+  private cdr: ChangeDetectorRef = inject(ChangeDetectorRef);
   private route: ActivatedRoute = inject(ActivatedRoute);
   private id: string| null = null;
   private router:Router = inject(Router);
@@ -20,7 +21,11 @@ export class PractitionerDetails implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     if (this.id !== null) {
-      this.practitionerService.getPractitioner(parseInt(this.id)).subscribe(practitioner => {this.practitioner = practitioner;});
+      this.practitionerService.getPractitioner(parseInt(this.id)).subscribe(practitioner => {
+        console.log('practitioner reçu:', practitioner);
+        this.practitioner = practitioner;
+        this.cdr.detectChanges();
+      });
     }
   }
 
