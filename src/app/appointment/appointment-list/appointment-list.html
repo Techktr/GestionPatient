@@ -1,1 +1,13 @@
-<p>appointment-list works!</p>
+<h2>Listes des rendez-vous</h2>
+
+<ul>
+  @for (appointment of appointments; track appointment.id){
+    <li [routerLink]="['/appointments', appointment.id]">
+      <div>{{ appointment.patientFullName }}</div>
+      <div>{{ appointment.practitionerFullName }}</div>
+      <div>{{ appointment.date }}</div>
+    </li>
+  }
+</ul>
+
+<button [routerLink]="['/appointments','create']">Ajouter un rendez-vous</button>
