@@ -1,6 +1,5 @@
 import { Component, signal } from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
-import {PatientList} from './patient/patient-list/patient-list';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +8,5 @@ import {PatientList} from './patient/patient-list/patient-list';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('TestAngularWebstorm');
+  protected readonly title = signal('MedicoApp');
 }
