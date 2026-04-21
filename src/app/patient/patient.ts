@@ -4,6 +4,7 @@ import {map, Observable, of, tap} from 'rxjs';
 import {Patient} from './models/patient.interface';
 import {PatientCreate} from './models/patient-create.interface';
 import {PatientUpdate} from './models/patient-update.interface';
+import { API_BASE_URL } from '../core/constants';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ import {PatientUpdate} from './models/patient-update.interface';
 })
 export class PatientService {
   private http = inject(HttpClient);
-  private readonly apiUrl = 'http://localhost:5274/api/patient';
+  private readonly apiUrl = `${API_BASE_URL}/patient`;
   public patients: Patient[] = [];
 
   public getPatients(): Observable<Patient[]> {

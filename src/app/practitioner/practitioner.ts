@@ -4,13 +4,14 @@ import {PractitionerUpdate} from './models/practitioner-update.interface';
 import {Observable, tap} from 'rxjs';
 import {PractitionerCreate} from './models/practitioner-create.interface';
 import {Practitioner} from './models/practitioner.interface';
+import { API_BASE_URL } from '../core/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PractitionerService {
   private http: HttpClient = inject(HttpClient);
-  private readonly apiUrl: string = 'http://localhost:5274/api/practitioner';
+  private readonly apiUrl: string = `${API_BASE_URL}/practitioner`;
   private practitioners: Practitioner[] = [];
 
   public getPractitioners():Observable<Practitioner[]> {

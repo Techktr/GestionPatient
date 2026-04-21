@@ -4,13 +4,14 @@ import { Observable, tap } from "rxjs";
 import {AppointmentCreate} from './models/appointment-create.interface';
 import {AppointmentUpdate} from './models/appointment-update.interface';
 import {Appointment} from './models/appointment.interface';
+import { API_BASE_URL } from '../core/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppointmentService {
   private http: HttpClient = inject(HttpClient);
-  private readonly urlApi:string = 'http://localhost:5274/api/appointment';
+  private readonly urlApi:string = `${API_BASE_URL}/appointment`;
   private appointments: Appointment[] = [];
 
   public getAppointments():Observable<Appointment[]>{
