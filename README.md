@@ -1,59 +1,60 @@
-# TestAngularWebstorm
+# GestionPatient — Frontend Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.4.
+Interface web du projet **MedicoAPI**, une application de gestion de patients,
+praticiens et rendez-vous pour un cabinet de médecin du sport.
 
-## Development server
+Développé avec Angular 19 (CLI 21.1.4) et TypeScript.
 
-To start a local development server, run:
+## Stack
+
+- **Framework** : Angular 19
+- **Langage** : TypeScript
+- **Communication API** : HttpClient (REST)
+- **Backend** : [MedicoAPI (.NET 8)](https://github.com/Techktr/MedicoAPI)
+
+## Prérequis
+
+- Node.js >= 18
+- Angular CLI : `npm install -g @angular/cli`
+
+## Installation
+
+```bash
+git clone https://github.com/Techktr/GestionPatient.git
+cd GestionPatient
+npm install
+```
+
+## Configuration
+
+L'URL de l'API backend est définie dans `src/app/constants.ts` :
+
+```typescript
+export const API_BASE_URL = 'http://localhost:5274/api';
+```
+
+Assure-toi que **MedicoAPI** tourne en local avant de lancer le frontend.
+
+## Lancer en développement
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Accès : `http://localhost:4200`
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Build production
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Les artefacts sont générés dans `dist/`.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## Tests
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+*Tests unitaires en cours d'implémentation.*
